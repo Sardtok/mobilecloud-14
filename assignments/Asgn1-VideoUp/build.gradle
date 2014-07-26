@@ -18,6 +18,7 @@ apply plugin: 'idea'
 apply plugin: 'spring-boot'
 apply plugin: 'war'
 
+mainClassName = 'org.magnum.dataup.Application'
 sourceCompatibility = 1.7
 
 compileJava {
@@ -66,4 +67,9 @@ dependencies {
 
 task wrapper(type: Wrapper) {
     gradleVersion = '1.11'
+}
+
+task create-submission(type: JavaExec) {
+  main='org.magnum.dataup.AutoGrading'
+  classpath = project.sourceSets.main.runtimeClasspath
 }
